@@ -16,6 +16,9 @@ class Uf(models.Model):
     class Meta:
         db_table = "ufs"
 
+    def __str__(self) -> str:
+        return f"{self.nome} - {self.sigla}"
+
 
 class Cidade(models.Model):
     nome = models.CharField(
@@ -32,6 +35,9 @@ class Cidade(models.Model):
 
     class Meta:
         db_table = "cidades"
+
+    def __str__(self) -> str:
+        return f"{self.nome} - {self.uf.sigla}"
 
 
 class Endereco(models.Model):
@@ -75,6 +81,9 @@ class Endereco(models.Model):
 
     class Meta:
         db_table = "enderecos"
+
+    def __str__(self) -> str:
+        return f"{str(self.cidade)} - {self.cep}"
 
 
 class Conta(models.Model):
@@ -127,6 +136,9 @@ class Conta(models.Model):
 
     class Meta:
         db_table = "contas"
+
+    def __str__(self) -> str:
+        return f"{self.banco} -  {self.conta}/{self.agencia}"
 
 
 class Pessoa(models.Model):
@@ -186,6 +198,9 @@ class Pessoa(models.Model):
 
     class Meta:
         db_table = "pessoas"
+
+    def __str__(self) -> str:
+        return f"{self.nome} - {self.telefone}"
 
 
 class Ocorrencia(models.Model):
